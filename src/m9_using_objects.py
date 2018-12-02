@@ -84,7 +84,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # DONE: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -99,9 +99,17 @@ def circle_and_rectangle():
     circle_y = 100
     circle_radius = 45
 
+    rectangle_top_x = 100
+    rectangle_top_y = 200
+    rectangle_bot_x = 150
+    rectangle_bot_y = 300
+
+    rectangle_length = rectangle_bot_x-rectangle_top_x
+    rectangle_height = rectangle_bot_y-rectangle_top_y
+
     circle = rg.Circle(rg.Point(circle_x, circle_y), circle_radius)
     circle.fill_color = 'blue'
-    rectangle = rg.Rectangle(rg.Point(100, 200), rg.Point(150, 300))
+    rectangle = rg.Rectangle(rg.Point(rectangle_top_x, rectangle_top_y), rg.Point(rectangle_bot_x, rectangle_bot_y))
 
     circle.attach_to(window)
     rectangle.attach_to(window)
@@ -121,8 +129,8 @@ def circle_and_rectangle():
     print(rectangle.fill_color)
     center = rectangle.get_center()
     print(center)
-    print(125)
-    print(250)
+    print((rectangle_length/2)+rectangle_top_x)
+    print((rectangle_height/2)+rectangle_top_y)
 
     window.close_on_mouse_click()
 
@@ -150,6 +158,23 @@ def lines():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # TODO: 4. Implement and test this function.
+
+    window = rg.RoseWindow()
+
+    line1 = rg.Line(rg.Point(30, 450), rg.Point(200, 120))
+    line2 = rg.Line(rg.Point(5, 5), rg.Point(300, 300))
+    line2.thickness = 3
+
+    line1.attach_to(window)
+    line2.attach_to(window)
+
+    window.render()
+
+    print(line2.get_midpoint())
+    print((line2.start.x + line2.end.x) / 2)
+    print((line2.start.y + line2.end.y) / 2)
+
+    window.close_on_mouse_click()
 
 
 # -----------------------------------------------------------------------------

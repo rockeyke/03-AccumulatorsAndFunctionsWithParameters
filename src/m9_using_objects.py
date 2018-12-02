@@ -5,8 +5,8 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Kirsten Rockey.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -14,6 +14,9 @@ import rosegraphics as rg
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
+    two_circles()
+    circle_and_rectangle()
+    lines()
 
 
 def two_circles():
@@ -33,6 +36,20 @@ def two_circles():
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # -------------------------------------------------------------------------
+
+    window = rg.RoseWindow()
+
+    one = rg.Circle(rg.Point(100, 200), 50)
+    one.fill_color = 'blue'
+
+    two = rg.Circle(rg.Point(200, 100), 75)
+
+    one.attach_to(window)
+    two.attach_to(window)
+
+    window.render()
+
+    window.close_on_mouse_click()
 
 
 def circle_and_rectangle():
@@ -75,6 +92,39 @@ def circle_and_rectangle():
     # IMPORTANT: Use the DOT TRICK to guess the names of the relevant
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
+
+    window = rg.RoseWindow()
+
+    circle_x = 300
+    circle_y = 100
+    circle_radius = 45
+
+    circle = rg.Circle(rg.Point(circle_x, circle_y), circle_radius)
+    circle.fill_color = 'blue'
+    rectangle = rg.Rectangle(rg.Point(100, 200), rg.Point(150, 300))
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+
+    window.render()
+
+    thickness = circle.outline_thickness
+    print(thickness)
+    print(circle.fill_color)
+    center = circle.center
+    print(center)
+    print(circle_x)
+    print(circle_y)
+
+    thickness = rectangle.outline_thickness
+    print(thickness)
+    print(rectangle.fill_color)
+    center = rectangle.get_center()
+    print(center)
+    print(125)
+    print(250)
+
+    window.close_on_mouse_click()
 
 
 def lines():
